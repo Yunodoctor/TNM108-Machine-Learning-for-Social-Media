@@ -7,21 +7,21 @@ print(len(cancer.data[cancer.target==1]))
 import numpy as np
 import matplotlib.pyplot as plt
 
-# fig,axes =plt.subplots(10,3, figsize=(12, 9)) # 3 columns each containing 10 figures, total 30 features
-# malignant=cancer.data[cancer.target==0] # define malignant
-# benign=cancer.data[cancer.target==1] # define benign
-# ax=axes.ravel()# flat axes with numpy ravel
-# for i in range(30):
-#     _,bins=np.histogram(cancer.data[:,i],bins=40)
-#     ax[i].hist(malignant[:,i],bins=bins,color='r',alpha=.5)  # red color for malignant class
-#     ax[i].hist(benign[:,i],bins=bins,color='g',alpha=0.3  )# alpha is for transparency in the overlapped region
-#     ax[i].set_title(cancer.feature_names[i],fontsize=9)
-#     ax[i].axes.get_xaxis().set_visible(False) # the x-axis coordinates are not so useful, as we just want to look how well separated the histograms are
-#     ax[i].set_yticks(())
+fig,axes =plt.subplots(10,3, figsize=(12, 9)) # 3 columns each containing 10 figures, total 30 features
+malignant=cancer.data[cancer.target==0] # define malignant
+benign=cancer.data[cancer.target==1] # define benign
+ax=axes.ravel()# flat axes with numpy ravel
+for i in range(30):
+    _,bins=np.histogram(cancer.data[:,i],bins=40)
+    ax[i].hist(malignant[:,i],bins=bins,color='r',alpha=.5)  # red color for malignant class
+    ax[i].hist(benign[:,i],bins=bins,color='g',alpha=0.3  )# alpha is for transparency in the overlapped region
+    ax[i].set_title(cancer.feature_names[i],fontsize=9)
+    ax[i].axes.get_xaxis().set_visible(False) # the x-axis coordinates are not so useful, as we just want to look how well separated the histograms are
+    ax[i].set_yticks(())
 
-# ax[0].legend(['malignant','benign'],loc='best',fontsize=8)
-# plt.tight_layout()# let's make good plots
-# plt.show()
+ax[0].legend(['malignant','benign'],loc='best',fontsize=8)
+plt.tight_layout()# let's make good plots
+plt.show()
 
 
 # import pandas as pd
